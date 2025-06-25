@@ -1,39 +1,31 @@
-import React, { useState } from "react";
-// import { Routes, Route } from "react-router-dom";
-
-// function Home() {
-//   return <h1>Welcome to the Home Page</h1>;
-// }
-
-// function About() {
-//   return <h1>About Us</h1>;
-// }
-
-// function Services() {
-//   return <h1>Our Services</h1>;
-// }
+import { Routes, Route, Link } from "react-router-dom";
+import React from "react";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Services from "./pages/Services";
 
 function App() {
-  const [count, setCount] = React.useState(0);
-
-  const increment = () => {
-    setCount(count + 1);
-  };
-  const decrement = () => {
-    setCount(count - 1);
-  };
   return (
     <>
-      <p>{count}</p>
-      <button onClick={increment}>+</button>
-      <button onClick={decrement}>-</button>
+      <nav>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/about">About</Link>
+          </li>
+          <li>
+            <Link to="/services">Services</Link>
+          </li>
+        </ul>
+      </nav>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/services" element={<Services />} />
+      </Routes>
     </>
-
-    // <Routes>
-    //   <Route path="/" element={<Home />} />
-    //   <Route path="/about" element={<About />} />
-    //   <Route path="/services" element={<Services />} />
-    // </Routes>
   );
 }
 
