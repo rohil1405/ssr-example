@@ -9,17 +9,14 @@ import App from "../src/App";
 const PORT = 8000;
 const app = express();
 
-// Metadata for each route
 const metadata = {
   "/about": {
-    title: "About Us - Purple-Themed Website",
-    description:
-      "Learn more about us on the About Page of our Purple-Themed Website.",
+    title: "About Us",
+    description: "This is a about page",
   },
   "/services": {
-    title: "Services - Purple-Themed Website",
-    description:
-      "Discover the services we offer on the Services Page of our Purple-Themed Website.",
+    title: "Services",
+    description: "this is a server page",
   },
 };
 
@@ -35,8 +32,8 @@ app.get(["/", "/about", "/services"], (req, res) => {
     }
 
     const routeMeta = metadata[req.path] || {
-      title: "Default Title - Purple-Themed Website",
-      description: "Default description for our Purple-Themed Website.",
+      title: "React-App",
+      description: "Default description for our Website.",
     };
 
     const appHTML = ReactDOMServer.renderToString(
